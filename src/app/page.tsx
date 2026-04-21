@@ -220,7 +220,7 @@ export default function Home() {
             <a href="mailto:dillivijay@indicabs.net" className="btn-primary w-full md:w-auto px-12 text-xl shadow-accent/20">
               <Mail size={24} /> Get Started
             </a>
-            <a href="https://wa.me/917010471243" target="_blank" className="btn-secondary w-full md:w-auto px-12 text-xl">
+            <a href="https://wa.me/919344954566" target="_blank" className="btn-secondary w-full md:w-auto px-12 text-xl">
               <MessageCircle size={24} className="text-green-500" /> WhatsApp
             </a>
           </div>
