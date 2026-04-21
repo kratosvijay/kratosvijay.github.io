@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617; /* Deep Slate 950 */
+  --foreground: #f8fafc; /* Slate 50 */
+  --primary: #6366f1; /* Indigo 500 */
+  --accent: #22d3ee; /* Cyan 400 */
+  --surface: rgba(15, 23, 42, 0.6);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-muted: #94a3b8; /* Slate 400 */
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-text-muted: var(--text-muted);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased selection:bg-primary/30 selection:text-white;
+  }
+  
+  * {
+    @apply border-border/50;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-linear-to-br from-primary via-indigo-600 to-accent text-white font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 glass text-white font-bold rounded-2xl hover:bg-white/10 transition-all border border-white/10 flex items-center justify-center gap-2;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-7xl font-black mb-8 bg-clip-text text-transparent bg-linear-to-b from-white to-white/40 tracking-tighter;
+  }
+
+  .premium-card {
+    @apply glass p-8 md:p-10 rounded-[32px] hover:border-primary/50 transition-all duration-500 hover:shadow-primary/10;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-accent;
+}
+
+.glow-shadow {
+  box-shadow: 0 0 40px -10px var(--primary);
+}
