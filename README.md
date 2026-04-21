@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dilli Vijay | Premium Freelance Portfolio
 
-## Getting Started
+A high-converting, professional showcase built with Next.js, featuring a dark premium theme, real-time system highlights, and automated payment integration case studies.
 
-First, run the development server:
+## 🚀 Live Site
+The site is deployed at [https://kratosvijay.github.io](https://kratosvijay.github.io) via GitHub Actions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
+- **Frontend**: Next.js (App Router), Tailwind CSS
+- **Styling**: Premium Dark Theme with Glassmorphism
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages (Automated via GitHub Actions)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Features
+- **Hero Section**: High-converting service-based headline.
+- **Featured Project**: Deep dive into the Indi Cabs ride-hailing ecosystem.
+- **Services**: Specialized solutions for Mobile, Backend, Payments, and Real-time systems.
+- **Social Proof**: Highlights of commercial apps live on the Play Store.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Local Development
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚢 Deployment
+Every push to the `main` branch automatically triggers a GitHub Action to:
+1. Install dependencies
+2. Build the project (`output: export`)
+3. Deploy the static `out` directory to GitHub Pages.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Note: Ensure "Settings > Pages > Source" is set to "GitHub Actions" in the repository settings.*
