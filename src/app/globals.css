@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #020617; /* Deep Slate 950 */
@@ -16,33 +14,100 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply antialiased selection:bg-indigo-500/30 selection:text-white;
+    @apply antialiased;
+  }
+  
+  body::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+    color: white;
   }
   
   * {
-    @apply border-white/10;
+    border-color: rgba(255, 255, 255, 0.1);
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
   
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-br from-[#6366f1] via-indigo-600 to-[#22d3ee] text-white font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 flex items-center justify-center gap-2;
+    padding: 1rem 2rem;
+    background: linear-gradient(to bottom right, #6366f1, #4f46e5, #22d3ee);
+    color: white;
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
   }
 
   .btn-secondary {
-    @apply px-8 py-4 glass text-white font-bold rounded-2xl hover:bg-white/10 transition-all border border-white/10 flex items-center justify-center gap-2;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    color: white;
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   .section-title {
-    @apply text-4xl md:text-7xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40 tracking-tighter;
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.4));
+    letter-spacing: -0.05em;
+  }
+  
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 4.5rem;
+    }
   }
 
   .premium-card {
-    @apply glass p-8 md:p-10 rounded-[32px] hover:border-indigo-500/50 transition-all duration-500 hover:shadow-indigo-500/10;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    padding: 2rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
+  }
+  
+  @media (min-width: 768px) {
+    .premium-card {
+      padding: 2.5rem;
+    }
+  }
+  
+  .premium-card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
   }
 }
 
@@ -66,7 +131,10 @@
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-400;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #6366f1, #22d3ee);
 }
 
 .glow-shadow {

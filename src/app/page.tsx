@@ -12,8 +12,13 @@ import {
   Zap,
   CreditCard,
   MessageCircle,
-  Mail
+  Mail,
+  Globe,
+  Layout,
+  Eye,
+  Shield
 } from "lucide-react";
+import { projects } from "@/data/projects";
 import Image from "next/image";
 
 const services = [
@@ -50,6 +55,7 @@ export default function Home() {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-2 glass rounded-2xl flex items-center gap-6 shadow-2xl backdrop-blur-3xl">
         <a href="#hero" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Home</a>
         <a href="#featured" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Work</a>
+        <a href="#projects" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Projects</a>
         <a href="#services" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Services</a>
         <a href="mailto:dillivijay@indicabs.net" className="text-xs font-bold px-4 py-2 bg-primary rounded-xl text-white hover:bg-indigo-600 transition-all">Hire Me</a>
       </nav>
@@ -147,6 +153,54 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Grid Section */}
+      <section id="projects" className="py-32 px-4 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <span className="text-accent font-black tracking-[0.2em] text-xs uppercase mb-4 block">Archive</span>
+            <h2 className="section-title">All Projects.</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, i) => (
+              <a 
+                key={i} 
+                href={project.link} 
+                target="_blank" 
+                className="premium-card group bg-white/[0.02] border-white/5 hover:border-primary/40 hover:bg-white/[0.04] transition-all duration-500 flex flex-col h-full"
+              >
+                <div className="flex justify-between items-start mb-8">
+                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    {project.icon === "Smartphone" && <Smartphone size={24} />}
+                    {project.icon === "Shield" && <Shield size={24} />}
+                    {project.icon === "Globe" && <Globe size={24} />}
+                    {project.icon === "Layout" && <Layout size={24} />}
+                    {project.icon === "Eye" && <Eye size={24} />}
+                  </div>
+                  <ExternalLink size={18} className="text-slate-600 group-hover:text-white transition-colors" />
+                </div>
+                
+                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-sm text-text-muted leading-relaxed mb-8 flex-grow">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                  {project.tech.map(tag => (
+                    <span key={tag} className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
